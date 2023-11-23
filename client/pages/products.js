@@ -1,4 +1,8 @@
-export default function products() {
+export default async function() {
+
+  const response = await fetch('/api/products')
+  const products = await response.json()
+  console.log(products)
 
   // create html
   let html = `
