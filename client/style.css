@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  color: white;
+  padding: 1vh 2vw;
+}
+
+body>div {
+  display: flex;
+}
+
+nav>a {
+  color: white;
+  padding-right: 1vw;
+  border-right: 1px solid white;
+  margin-right: 1vw;
+}
+
+nav>a:last-child{
+  border: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+main {
+  width: 66vw;
+}
+
+aside {
+  width: 33vw;
+}
+
+article>img {
+  width: 100%;
+}

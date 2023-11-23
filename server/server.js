@@ -1,7 +1,6 @@
 import express from 'express'
 import mysql from 'mysql'
 import session from 'express-session'
-// import MySQLStore from 'express-mysql-session'
 import { promisify } from 'util'
 // rest apis
 import apiRegister from './api-register.js'
@@ -12,12 +11,11 @@ const port = 3000
 // Express now includes a built-in JSON body parser
 server.use(express.json())
 
-// Configure Express to use sessions with express-mysql-session
+// Configure Express to use sessions
 server.use(session({
   secret: 'keyboard_cat',
   resave: false,
-  saveUninitialized: false,
-  // store: sessionStore
+  saveUninitialized: false
 }))
 
 // Configure MySQL connection
@@ -38,15 +36,9 @@ db.connect(err => {
     return
   }
   console.log('Connected to MySQL database')
-  
-  // // Configure session store with express-mysql-session
-  // const sessionStore = new MySQLStore({
-  //   expiration: 86400000, // Session expiration time in milliseconds (1 day)
-  //   createDatabaseTable: true,
-  //   schema: {
-  //     tableName: 'sessions'
-  //   }
-  // }, db)
+
+  // serve static client directory
+  server.use(express.static("../client"));
 
   // connect to API:s
   apiRegister(server, db)
