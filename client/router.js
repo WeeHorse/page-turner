@@ -1,8 +1,14 @@
+// components, not used in router
+import login from "./components/login.js"
+$('#login').html(login())
+
+// pages, used in router
 import home from "./pages/home.js"
 import products from "./pages/products.js"
 import about from "./pages/about.js"
 import contact from "./pages/contact.js"
 
+// routed pages
 async function router() {
   switch (location.hash) {
 
