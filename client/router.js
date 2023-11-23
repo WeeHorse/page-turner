@@ -20,7 +20,6 @@ async function router() {
 
     case "#contact":
       $('main').html(contact())
-      break
 
     default:
       $('main').html(`<h2><strong>404</strong> Good job! You've broken the internet.</h2>`)
