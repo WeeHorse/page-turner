@@ -1,12 +1,15 @@
+// first load the cart html initally
 export default async function init(){
   $('#cart').html(await loadCart())
 }
 
-
+// after each add to cart - reload cart html again
 export async function addToCart(productId) {
   saveNewItem(productId)
   $('#cart').html(await loadCart())
 }
+
+window.addToCart = addToCart
 
 async function saveNewItem(productId) {
   let response = await fetch('/api/cart-items', {
