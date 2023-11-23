@@ -1,8 +1,16 @@
+// components, not used in router
+import login from "./components/login.js"
+$('#login').html(login())
+import cart from "./components/cart.js"
+cart()
+
+// pages, used in router
 import shinyLight from "./pages/shiny-light.js"
 import platosCave from "./pages/platos-cave.js"
 import home from "./pages/home.js"
 import products from "./pages/products.js"
 
+// routed pages
 async function router() {
   switch (location.hash) {
     case "#shiny-light":
