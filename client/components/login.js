@@ -1,4 +1,6 @@
-export default function init(){
+import cart from "./cart.js"
+
+export default function init() {
   return `
     <form onsubmit="login(); return false">
       <input name="email" placeholder="your email">
@@ -8,7 +10,7 @@ export default function init(){
   `
 }
 
-async function login(){
+async function login() {
   const credentials = {
     email: $('[name=email]').val(),
     password: $('[name=password]').val()
@@ -24,10 +26,11 @@ async function login(){
   });
   let result = await response.json();
   console.log(result)
-  if(result.loggedIn){
+  if (result.loggedIn) {
     $('#login').html(`
       <button onclick="logout()">Logout</button>
     `)
+    cart() // render cart when you login
   }
 
 }
@@ -35,26 +38,27 @@ async function login(){
 window.login = login // expose login to global (html) scope
 
 
-async function logout(){
+async function logout() {
   console.log('sir, logging out?')
   let response = await fetch('/api/login', {
     method: 'delete'
   });
   let result = await response.json();
   console.log(result)
-  if(!result.loggedIn){
+  if (!result.loggedIn) {
     $('#login').html(init())
+    $("#cart").html("") // remove cart when you logout
   }
 }
 
 window.logout = logout
 
 
-async function checkLogin(){
+async function checkLogin() {
   const response = await fetch('/api/login')
   const result = await response.json()
   console.log(result)
-  if(result.loggedIn || result.email){
+  if (result.loggedIn || result.email) {
     $('#login').html(`
       <button onclick="logout()">Logout</button>
     `)

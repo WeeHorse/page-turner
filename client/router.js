@@ -2,6 +2,9 @@
 import login from "./components/login.js"
 $('#login').html(login())
 
+import cart from "./components/cart.js"
+cart()
+
 // pages, used in router
 import home from "./pages/home.js"
 import products from "./pages/products.js"
