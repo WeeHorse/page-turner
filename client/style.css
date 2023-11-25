@@ -1,5 +1,13 @@
-body {
+html{
   background-color: black;
+  background-image: url(images/crystal-ball.jpg);
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+}
+body {
+  background-color: rgba(0,0,0,0.75);
+  min-height: 100vh;
   color: white;
   padding: 1vh 2vw;
 }
