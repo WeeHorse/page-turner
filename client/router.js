@@ -1,6 +1,6 @@
 // components, not used in router
-import login from "./components/login.js"
-$('#login').html(login())
+import loginInit from "./components/login.js"
+$('#login').html(loginInit())
 
 import cart from "./components/cart.js"
 cart()

@@ -3,6 +3,7 @@ export default async function init() {
 }
 
 async function addToCart(productId) {
+  console.log(productId)
   saveNewItem(productId)
   $("#cart").html(await loadCart())
 }
